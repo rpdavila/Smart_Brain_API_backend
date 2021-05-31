@@ -6,7 +6,6 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
-const { host, user, password } = require('./config')
 
 
 const app = express();
@@ -14,9 +13,9 @@ const app = express();
 const db = knex({
     client: 'pg',
     connection: {
-      host : `${host}`,
-      user : `${user}`,
-      password : `${password}`,
+      host : `${process.env.HOST}`,
+      user : `${process.env.USER}`,
+      password : `${process.env.PASSWORD}`,
       database : 'smart-brain'
     }
   });

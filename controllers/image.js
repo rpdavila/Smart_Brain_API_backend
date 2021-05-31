@@ -1,8 +1,7 @@
-import { clarifai_API } from '../config'
 const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
-    apiKey: clarifai_API
+    apiKey: process.env.clarifai_API
    });
 
 const handleApiCall = (req, res) => {
