@@ -1,2 +1,5 @@
-# envronment
+# dependencies
+node_modules
+# environment
 .env
+.idea
