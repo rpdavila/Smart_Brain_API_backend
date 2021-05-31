@@ -24,8 +24,6 @@ const db = knex({
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT
-
 app.get('/', (req, res) => {
  res.send(database.users);
 })
