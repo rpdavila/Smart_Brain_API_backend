@@ -6,7 +6,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
-const { port, host, user, password } = require('./config')
+const { host, user, password } = require('./config')
 
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
- res.send(database.users);
+ res.send('Its Working');
 })
 
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)});
@@ -38,9 +38,10 @@ app.put('/image', (req, res) => {image.handleImage(req, res, db)});
 
 app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)});
 
-app.listen(port, ()=> {
-    console.log(`app is running on port ${port}`)
+app.listen(process.env.PORT || 3000, ()=> {
+    console.log(`app is running on port ${process.env.PORT}`)
 })
+
 
 
 
