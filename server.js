@@ -13,10 +13,8 @@ const app = express();
 const db = knex({
     client: 'pg',
     connection: {
-      host : `${process.env.HOST}`,
-      user : `${process.env.USER}`,
-      password : `${process.env.PASSWORD}`,
-      database : 'smart-brain'
+      connectionString: process.env.DATABSE_URL,
+      ssl: true,
     }
   });
 
